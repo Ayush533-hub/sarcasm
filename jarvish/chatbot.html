@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DeepSeek AI Chatbot</title>
+  <link rel="stylesheet" href="testing.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>DeepSeek AI <small>Chatbot</small></h1>
+  </header>
+
+  <main id="app">
+    <section id="chat" class="view">
+      <div class="card chat-card">
+        <h2>Savage Hinglish Chatbot 🤣</h2>
+        <div id="chatWindow" class="chat-window"></div>
+        <div class="chat-input">
+          <input id="chatInput" placeholder="Say something..." />
+          <button id="sendChatBtn">Send</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Powered by Groq & DeepSeek AI</p>
+  </footer>
+
+  <script>
+    const chatWindow = document.getElementById('chatWindow');
+    const chatInput = document.getElementById('chatInput');
+    const sendChatBtn = document.getElementById('sendChatBtn');
+
+    function addMessage(text, isUser = false) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `chat-msg ${isUser ? 'msg-user' : 'msg-bot'}`;
+      msgDiv.textContent = text;
+      chatWindow.appendChild(msgDiv);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const message = chatInput.value.trim();
+      if (!message) return;
+
+      addMessage(message, true);
+      chatInput.value = '';
+
+      try {
+        const response = await fetch('/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message })
+        });
+        const data = await response.json();
+        addMessage(data.reply);
+      } catch (error) {
+        addMessage('Oops, error occurred 😅');
+      }
+    }
+
+    sendChatBtn.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+  </script>
+</body>
+</html>

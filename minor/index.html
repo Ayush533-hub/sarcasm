@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FunFusion — Mini Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>FunFusion <small>Mini Project</small></h1>
+    <nav>
+      <button data-view="home" class="nav-btn active">Home</button>
+      <button data-view="quiz" class="nav-btn">Funny Quiz</button>
+      <button data-view="game" class="nav-btn">Snake Game</button>
+      <button data-view="memes" class="nav-btn">Meme Viewer</button>
+      <button data-view="chat" class="nav-btn">Funny Chatbot</button>
+    </nav>
+  </header>
+
+  <main id="app">
+
+    <section id="home" class="view">
+      <div class="card">
+        <h2>Welcome to FunFusion 🎉</h2>
+        <p>A small, playful entertainment hub for your minor project submission. Choose a module from the top menu.</p>
+        <div class="row">
+          <div class="tile" onclick="navigateTo('quiz')">🧠 Funny Quiz</div>
+          <div class="tile" onclick="navigateTo('game')">🎮 Snake Game</div>
+          <div class="tile" onclick="navigateTo('memes')">😂 Meme Viewer</div>
+          <div class="tile" onclick="navigateTo('chat')">💬 Funny Chatbot</div>
+        </div>
+        <hr>
+        <div>
+          <label>Enter your name (for highscore & quiz): <input id="username" type="text" placeholder="Your name"></label>
+          <button id="saveNameBtn">Save</button>
+          <p id="savedNameText"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section id="quiz" class="view hidden">
+      <div class="card">
+        <h2>Funny Quiz</h2>
+        <div id="quizContainer"></div>
+        <div id="quizResult" class="result hidden"></div>
+        <div class="controls">
+          <button id="startQuizBtn">Start Quiz</button>
+          <button id="restartQuizBtn" class="hidden">Restart</button>
+          <button onclick="navigateTo('home')">Back</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game -->
+    <section id="game" class="view hidden">
+      <div class="card">
+        <h2>Snake Game</h2>
+        <p>Use arrow keys to move. Eat food to grow. Press Space to restart on Game Over.</p>
+        <canvas id="snakeCanvas" width="400" height="400"></canvas>
+        <div class="row">
+          <div>Score: <span id="score">0</span></div>
+          <div>Highscore: <span id="highscore">0</span></div>
+        </div>
+        <div class="controls">
+          <button id="startGameBtn">Start Game</button>
+          <button onclick="navigateTo('home')">Back</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Memes -->
+    <section id="memes" class="view hidden">
+      <div class="card">
+        <h2>Meme Viewer</h2>
+        <div id="memeArea" class="meme-area">
+          <img id="memeImg" src="" alt="meme" class="meme-img hidden">
+          <p id="memeTitle"></p>
+        </div>
+        <div class="row">
+          <button id="nextMemeBtn">Next Meme</button>
+          <button id="downloadMemeBtn">Open / Download</button>
+          <button onclick="navigateTo('home')">Back</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chat -->
+    <section id="chat" class="view hidden">
+      <div class="card chat-card">
+        <h2>Funny Chatbot</h2>
+        <div id="chatWindow" class="chat-window"></div>
+        <div class="chat-input">
+          <input id="chatInput" placeholder="Say something funny..." />
+          <button id="sendChatBtn">Send</button>
+        </div>
+        <div class="controls">
+          <button onclick="navigateTo('home')">Back</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>FunFusion — Mini Project &middot; Student-friendly demo</p>
+    <small>Open-source for college submission</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FunFusion — Mini Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>FunFusion <small>Mini Project</small></h1>
+    <nav>
+      <button data-view="home" class="nav-btn active">Home</button>
+      <button data-view="quiz" class="nav-btn">Funny Quiz</button>
+      <button data-view="game" class="nav-btn">Snake Game</button>
+      <button data-view="memes" class="nav-btn">Meme Viewer</button>
+      <button data-view="chat" class="nav-btn">Funny Chatbot</button>
+    </nav>
+  </header>
+
+  <main id="app">
+
+    <section id="home" class="view">
+      <div class="card">
+        <h2>Welcome to FunFusion 🎉</h2>
+        <p>A small, playful entertainment hub for your minor project submission. Choose a module from the top menu.</p>
+        <div class="row">
+          <div class="tile" onclick="navigateTo('quiz')">🧠 Funny Quiz</div>
+          <div class="tile" onclick="navigateTo('game')">🎮 Snake Game</div>
+          <div class="tile" onclick="navigateTo('memes')">😂 Meme Viewer</div>
+          <div class="tile" onclick="navigateTo('chat')">💬 Funny Chatbot</div>
+        </div>
+        <hr>
+        
+
+    <!-- Chat -->
+    <section id="chat" class="view hidden">
+      <div class="card chat-card">
+        <h2>Funny Chatbot</h2>
+        <div id="chatWindow" class="chat-window"></div>
+        <div class="chat-input">
+          <input id="chatInput" placeholder="Say something funny..." />
+          <button id="sendChatBtn">Send</button>
+        </div>
+        <div class="controls">
+          <button onclick="navigateTo('home')">Back</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>FunFusion — Mini Project &middot; Student-friendly demo</p>
+    <small>Open-source for college submission</small>
+  </footer>
+
+  <!-- <script src="app.js"></script> -->
+</body>
+</html>

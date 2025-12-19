@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funny Snapchat Filters</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Face API -->
+    <script src="https://unpkg.com/face-api.js@0.22.2/dist/face-api.min.js"></script>
+</head>
+<body>
+
+<h1>😂 Funny Snapchat Filters</h1>
+
+<div class="container">
+    <video id="video" autoplay muted playsinline></video>
+    <canvas id="overlay"></canvas>
+</div>
+
+<div class="buttons">
+    <button onclick="setFilter('glasses')">😎 Glasses</button>
+    <button onclick="setFilter('mustache')">👨‍🦱 Mustache</button>
+    <button onclick="setFilter('dog')">🐶 Dog Nose</button>
+    <button onclick="setFilter('crown')">👑 Crown</button>
+    <button onclick="setFilter('hat')">🎩 Hat</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

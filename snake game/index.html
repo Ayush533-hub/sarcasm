@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>FunFusion — Snake Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>FunFusion</h1>
+  <nav>
+    <button class="nav-btn active" data-view="home">Home</button>
+    <button class="nav-btn" data-view="game">Snake Game</button>
+  </nav>
+</header>
+
+<main>
+
+<section id="home" class="view">
+  <div class="card">
+    <h2>Welcome 🎉</h2>
+    <p>Click below to play Snake Game</p>
+    <button onclick="navigateTo('game')">Play Snake</button>
+  </div>
+</section>
+
+<section id="game" class="view hidden">
+  <div class="card">
+    <h2>Snake Game</h2>
+    <p>Arrow keys • Eat food • Avoid obstacles</p>
+
+    <canvas id="snakeCanvas" width="400" height="400"></canvas>
+
+    <div class="row">
+      <div>Score: <span id="score">0</span></div>
+      <div>Highscore: <span id="highscore">0</span></div>
+      <div>Level: <span id="level">1</span></div>
+    </div>
+
+    <div class="controls">
+      <button id="startGameBtn">Start Game</button>
+      <button onclick="navigateTo('home')">Back</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
